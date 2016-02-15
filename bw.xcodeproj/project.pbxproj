@@ -13,6 +13,7 @@
 		9CD107ED1C71BC10007B0824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD107EB1C71BC10007B0824 /* Main.storyboard */; };
 		9CD107EF1C71BC10007B0824 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD107EE1C71BC10007B0824 /* Assets.xcassets */; };
 		9CD107F21C71BC10007B0824 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD107F01C71BC10007B0824 /* LaunchScreen.storyboard */; };
+		9CD107FA1C71BDBD007B0824 /* UseRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD107F91C71BDBC007B0824 /* UseRestClient.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9CD107EE1C71BC10007B0824 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CD107F11C71BC10007B0824 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CD107F31C71BC10007B0824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CD107F91C71BDBC007B0824 /* UseRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseRestClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				9CD107EE1C71BC10007B0824 /* Assets.xcassets */,
 				9CD107F01C71BC10007B0824 /* LaunchScreen.storyboard */,
 				9CD107F31C71BC10007B0824 /* Info.plist */,
+				9CD107F91C71BDBC007B0824 /* UseRestClient.swift */,
 			);
 			path = bw;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD107FA1C71BDBD007B0824 /* UseRestClient.swift in Sources */,
 				9CD107EA1C71BC10007B0824 /* DetailViewController.swift in Sources */,
 				9CD107E81C71BC10007B0824 /* MasterViewController.swift in Sources */,
 				9CD107E61C71BC10007B0824 /* AppDelegate.swift in Sources */,
