@@ -12,6 +12,7 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
+    var posts = Posts();
 
 
     override func viewDidLoad() {
@@ -19,13 +20,9 @@ class MasterViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //BudgetWorld
-        let client = UseRestClient();
-        client.sendRequest(1);
+        
         
         //===========
-        
-        
-        
         
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -75,7 +72,8 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        //return objects.count
+        return posts.countPosts()
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
