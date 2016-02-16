@@ -12,7 +12,10 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
+    var link : String!
 
+    @IBOutlet weak var mWebView: UIWebView!
+    
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
@@ -33,6 +36,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        print(link)
+        let requestURL = NSURL(string:link)
+        let request = NSURLRequest(URL:requestURL!)
+        mWebView.loadRequest(request)
+
     }
 
     override func didReceiveMemoryWarning() {

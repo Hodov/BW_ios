@@ -55,11 +55,14 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                
+                
+                //let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                controller.link = posts.getLink(indexPath.row)
+                //controller.detailItem = object
+                //controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                //controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
@@ -71,7 +74,6 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return objects.count
         return posts.countPosts()
     }
 
@@ -98,6 +100,7 @@ class MasterViewController: UITableViewController {
         }
     }
     
+    //нотификация на обновление таблицы
     func reloadTableData(notification: NSNotification) {
         
         dispatch_async(dispatch_get_main_queue()) {

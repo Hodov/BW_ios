@@ -59,8 +59,9 @@ class Posts {
             let id = i["id"] as! Int
             let titleJS = i["title"] as! NSDictionary
             let title = titleJS["rendered"] as! String
+            let link = i["link"] as! String
             
-            self.addPost(id, title: title)
+            self.addPost(id, title: title, link : link)
             
         }
         
@@ -69,10 +70,11 @@ class Posts {
     }
     //saveData
     
-    func addPost(id : Int, title : String) {
+    func addPost(id : Int, title : String, link : String) {
         let id = id
         let title = title
-        let post = Post(id: id, title: title)
+        let link = link
+        let post = Post(id: id, title: title, link : link)
         posts.append(post)
         
     }
@@ -98,5 +100,15 @@ class Posts {
         }
     }
     
+    func getLink(num: Int) -> String {
+        
+        if ((posts) != nil) {
+            return posts[num].postLink
+        }
+        else {
+            return ""
+        }
+    }
+
     
 }
