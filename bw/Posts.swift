@@ -10,11 +10,15 @@ import Foundation
 
 class Posts {
 
-    var posts: [Post]!
+    var posts : [Post]!
+    var loading : Bool = false
+    var currentPage : Int!
     
     init() {
         posts=[]
-        getData(1)
+        currentPage = 1
+        loading = true
+        getData(currentPage)
     }
     
     func getData(page: Int) {
@@ -25,7 +29,7 @@ class Posts {
 
     func sendRequest(page: Int) {
         
-        let url = NSURL(string: "http://budgetworld.ru/wp-json/wp/v2/posts")
+        let url = NSURL(string: "http://budgetworld.ru/wp-json/wp/v2/posts/?page="+String(page))
         let session = NSURLSession.sharedSession()
         
         let dataTask = session.dataTaskWithURL(url!, completionHandler: {
@@ -35,6 +39,8 @@ class Posts {
             do {
                 let jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSArray
                         self.saveData(jsonData)
+                        self.loading = false
+                
             }
             catch {
                 //handle error
@@ -47,12 +53,18 @@ class Posts {
     
     
     func saveData(jsonData : NSArray) {
+        
+        
         for i in jsonData {
             let id = i["id"] as! Int
             let titleJS = i["title"] as! NSDictionary
             let title = titleJS["rendered"] as! String
+            
             self.addPost(id, title: title)
+            
         }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("reload", object : nil)
         
     }
     //saveData
@@ -76,6 +88,15 @@ class Posts {
         }
     }
     
+    func getTitle(num: Int) -> String {
+        
+        if ((posts) != nil) {
+            return posts[num].postTitle
+        }
+        else {
+            return ""
+        }
+    }
     
     
 }
