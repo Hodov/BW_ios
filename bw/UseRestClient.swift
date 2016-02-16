@@ -13,31 +13,46 @@ class UseRestClient {
     
     
     
-    func sendRequest()-> data {
+    func sendRequest(page: Int) {
         
         let url = NSURL(string: "http://budgetworld.ru/wp-json/wp/v2/posts")
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {
-            (data, responce, error) in
-            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
-        }
-        task.resume()
+        let session = NSURLSession.sharedSession()
         
-        return data
-        
+        let dataTask = session.dataTaskWithURL(url!, completionHandler: {
+            (data, responce, error) -> Void in
+            //do something
+            
+            do {
+                let jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSArray
+                
+                self.saveData(jsonData)
+                
+                //do stuff
+            }
+            catch {
+                //handle error
+            }
+            
+        })
+        dataTask.resume()
     }
-    
+    //sendRequest
     
     func getData() {
         
-        sendRequest()
-        
+        self.sendRequest(1)
     }
+    //getData
     
-    func saveData() {
+    func saveData(jsonData : NSArray) {
         
-        
+        for i in jsonData {
+            let titleJS = i["title"] as! NSDictionary
+            print(titleJS["rendered"])
+        }
+       
     }
+    //saveData
     
     
-    
-}
+} //UseRestClient

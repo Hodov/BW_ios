@@ -58,6 +58,7 @@
 		9CD107E41C71BC10007B0824 /* bw */ = {
 			isa = PBXGroup;
 			children = (
+				9CD107FB1C7302D2007B0824 /* User class */,
 				9CD107E51C71BC10007B0824 /* AppDelegate.swift */,
 				9CD107E71C71BC10007B0824 /* MasterViewController.swift */,
 				9CD107E91C71BC10007B0824 /* DetailViewController.swift */,
@@ -65,9 +66,16 @@
 				9CD107EE1C71BC10007B0824 /* Assets.xcassets */,
 				9CD107F01C71BC10007B0824 /* LaunchScreen.storyboard */,
 				9CD107F31C71BC10007B0824 /* Info.plist */,
-				9CD107F91C71BDBC007B0824 /* UseRestClient.swift */,
 			);
 			path = bw;
+			sourceTree = "<group>";
+		};
+		9CD107FB1C7302D2007B0824 /* User class */ = {
+			isa = PBXGroup;
+			children = (
+				9CD107F91C71BDBC007B0824 /* UseRestClient.swift */,
+			);
+			name = "User class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
