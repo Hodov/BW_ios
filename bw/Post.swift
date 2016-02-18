@@ -14,11 +14,13 @@ class Post {
     var postId : Int!
     var postTitle : String!
     var postLink : String!
+    var postIMGLink : String!
     
-    init(id : Int, title: String, link : String) {
+    init(id : Int, title: String, link : String, imgLink : String) {
         postId = id
         postTitle = title
         postLink = link
+        postIMGLink = imgLink
     }
     
 }

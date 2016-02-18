@@ -78,11 +78,24 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! cardCell
 
         //let object = objects[indexPath.row] as! NSDate
         //cell.textLabel!.text = object.description
-        cell.textLabel!.text = posts.getTitle(indexPath.row)
+        
+        //BW=====
+        cell.mTitle!.text = posts.getTitle(indexPath.row)
+        cell.mTitle!.numberOfLines=0
+        cell.mTitle!.frame=CGRectMake(20,20,200,800)
+        cell.mTitle!.sizeToFit()
+        
+        
+        cell.mImage!.image=UIImage(named:"placeholder")
+        print(posts.getLink(indexPath.row))
+        cell.imageView!.downloadImageFrom(link: posts.getLink(indexPath.row), contentMode: UIViewContentMode.ScaleAspectFit)  //set your image from link array.
+        
+        
+        //=======
         return cell
     }
 

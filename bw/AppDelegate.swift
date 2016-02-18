@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
+        
+        //BudgetWorld
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0x00/255, green: 0xBC/255, blue: 0xD4/255, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(), NSFontAttributeName:UIFont.systemFontOfSize(20)]
+        
+        //
+        
         return true
     }
 

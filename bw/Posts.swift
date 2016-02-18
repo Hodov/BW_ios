@@ -60,8 +60,10 @@ class Posts {
             let titleJS = i["title"] as! NSDictionary
             let title = titleJS["rendered"] as! String
             let link = i["link"] as! String
+            let tempIMG = i["better_featured_image"] as! NSDictionary
+            let imgLink = tempIMG["source_url"] as! String
             
-            self.addPost(id, title: title, link : link)
+            self.addPost(id, title: title, link : link, imgLink : imgLink)
             
         }
         
@@ -70,11 +72,11 @@ class Posts {
     }
     //saveData
     
-    func addPost(id : Int, title : String, link : String) {
+    func addPost(id : Int, title : String, link : String, imgLink : String) {
         let id = id
         let title = title
         let link = link
-        let post = Post(id: id, title: title, link : link)
+        let post = Post(id: id, title: title, link : link, imgLink : imgLink)
         posts.append(post)
         
     }
@@ -103,7 +105,7 @@ class Posts {
     func getLink(num: Int) -> String {
         
         if ((posts) != nil) {
-            return posts[num].postLink
+            return posts[num].postIMGLink
         }
         else {
             return ""
